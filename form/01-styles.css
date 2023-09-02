@@ -807,7 +807,7 @@ ul.row {
   margin: 10rem 0 0 auto;
   padding-left: 7rem;
 }
-.post-comments .section-title {
+.section-title .post-comments {
   font-variant: small-caps;
 }
 /* Basic form
