@@ -1,0 +1,12 @@
+a {
+  text-decoration: none;
+  color: #941a34;
+}
+a:hover {
+  cursor: pointer;
+  color: #941a34;
+  text-decoration: underline;
+  transition: 0.9s cubic-bezier(0.17, 0.67, 0, 1.01);
+  width: 100%;
+  animation-duration: 20s;
+}
