@@ -7,31 +7,28 @@ scond arguement is the output of the file name
 
 
 import sys
-import os
-import markdown
+import markdown2
 
 
-def main(args):
-    """
-    print print in STDERR if arguement is less than 2
-    """
-    if len(args) < 2:
-        print("Usage:./markdown2html.py README.md README.html", file=sys.stderr)
+def convert_markdown_to_html(input_file, output_file):
+    try:
+        with open(input_file, 'r') as md_file:
+            markdown_content = md_file.read()
+            html_content = markdown2.markdown(markdown_content)
+            with open(output_file, 'w') as html_file:
+                html_file.write(html_content)
+    except FileNotFoundError:
+        print(f"Missing {input_file}", file=sys.stderr)
         sys.exit(1)
-
-    input_filename = args[0]
-    output_filename = args[1]
-
-    if not os.path.exists(input_filename):
-        print(f"Missing {input_filename}", file=sys.stderr)
-        sys.exit(1)
-
-    with open(input_filename, 'r') as md_file:
-        html = markdown.markdown(md_file.read())
-
-    with open(output_filename, 'w') as html_file:
-        html_file.write(html)
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    if len(sys.argv) < 3:
+        print("Usage: ./markdown2html.py <input_file> <output_file>", file=sys.stderr)
+        sys.exit(1)
+
+    input_file = sys.argv[1]
+    output_file = sys.argv[2]
+
+    convert_markdown_to_html(input_file, output_file)
+    sys.exit(0)
