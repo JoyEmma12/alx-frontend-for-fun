@@ -9,9 +9,11 @@ import sys
 import os
 import markdown
 
+
 def main(args):
+
     if len(args) < 2:
-        print("Usage: ./markdown2html.py README.md README.html", file=sys.stderr)
+        print("Usage:./markdown2html.py README.md README.html", file=sys.stderr)
         sys.exit(1)
 
     input_filename = args[0]
@@ -26,6 +28,7 @@ def main(args):
 
     with open(output_filename, 'w') as html_file:
         html_file.write(html)
+
 
 if __name__ == "__main__":
     main(sys.argv[1:])
