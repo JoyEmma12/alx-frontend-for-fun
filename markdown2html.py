@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Script that takes two string
+"""
+Script that takes two string
 first arguement is the name of the markdownfile
 scond arguement is the output of the file name
 """
@@ -11,7 +12,9 @@ import markdown
 
 
 def main(args):
-
+    """
+    print print in STDERR if arguement is less than 2
+    """
     if len(args) < 2:
         print("Usage:./markdown2html.py README.md README.html", file=sys.stderr)
         sys.exit(1)
